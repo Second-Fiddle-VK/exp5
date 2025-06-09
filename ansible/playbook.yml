@@ -2,8 +2,8 @@
   hosts: web
   become: yes
   tasks:
-    -name: Copy WAR to Tomcat
-     copy:
-       src: "/var/lib/jenkins/workspace/exp5/Maven-AnsibleWebApp.war"
-       dest: "/opt/tomcat/webapps/"
-       remote_src: no
+    - name: Copy WAR to Tomcat
+      copy:
+        src: "/var/lib/jenkins/workspace/exp5/Maven-AnsibleWebApp.war"
+        dest: "/opt/tomcat/webapps/"
+        remote_src: no
