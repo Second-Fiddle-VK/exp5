@@ -1,0 +1,21 @@
+pipeline{
+	agent any
+	stages{
+		stage('Checkout'){
+			steps{
+				git 'https://github.com/Second-Fiddle-VK/exp5.git'
+			}
+		}
+		stage('Build'){
+			steps{
+				git 'mvn clean install'
+			}
+		}
+		stage('Deploy'){
+			steps{
+				sh 'ansible-playbook ansible/playbook.yml -i ansible/hosts.ini'
+			}
+		}
+	}
+}
+
